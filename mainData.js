@@ -52,30 +52,37 @@ const commputers = [
 ]
    
 
-const mainSec = $("#mainSec");
+const mainArt = $("#mainArt");
 
 for (let i =0; i < Employees.length; i++) {
-    console.log(Employees[i].name)
-    let employHeader = $("<h1>")
-    employHeader.text(Employees[i].name)
-    mainSec.append(employHeader)
+    let newArt = $("<article>")
+    newArt.attr("class", "arty")
+    let divs = $("<div>")
+    divs.attr("class", "divvy")
+    newArt.append(divs)
+    let employHeader = $("<header>")
+    employHeader.attr("class", "please work")
+    divs.append(employHeader)
+    let employH1 = $("<h1>")
+    employH1.text(Employees[i].name)
+    employHeader.append(employH1)
     let id = Employees[i].departmentId
     let comp = Employees[i].computerId
    for (let i =0; i < Departments.length; i++) {
        if (id === Departments[i].departmentId) {
-           let departmentSec = $("<section></section>")
+           let departmentSec = $("<section>")
            departmentSec.text(Departments[i].title)
-           mainSec.append(departmentSec)
+           divs.append(departmentSec)
        }
    } 
    for (let i =0; i < commputers.length; i++){
        if (comp === commputers[i].computerId) {
            let compSec = $("<section>")
            compSec.text(commputers[i].compName)
-           mainSec.append(compSec)
-
+           divs.append(compSec)
        }
    }
+   mainArt.append(newArt)
 
    //mainSec.append(employArticle)
 }
